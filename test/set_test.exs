@@ -44,4 +44,10 @@ defmodule SetTest do
     assert Set.contains(set, 2) == false
     assert Set.contains(set, 3) == true
   end
+
+  test "ignores duplicates" do
+    set = Set.new |> Set.add(1) |> Set.add(1)
+
+    assert Set.size(set) === 1
+  end
 end

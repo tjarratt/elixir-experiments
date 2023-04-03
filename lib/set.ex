@@ -4,10 +4,13 @@ defmodule Set do
   def new do; %Set{} end
 
   def add(set, element) do
-    %Set{
-      size: set.size + 1,
-      elements: [element | set.elements],
-    }
+    case Enum.member?(set.elements, element) do
+      true -> set
+      false -> %Set{
+                    size: set.size + 1,
+                    elements: [element | set.elements],
+               }
+    end
   end
 
   def empty(set) do
