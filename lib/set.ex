@@ -3,8 +3,11 @@ defmodule Set do
 
   def new do; %Set{} end
 
-  def new(list) do
-    %Set{size: length(list), elements: list}
+  def add(set, element) do
+    %Set{
+      size: set.size + 1,
+      elements: [element | set.elements],
+    }
   end
 
   def empty(set) do
@@ -17,5 +20,12 @@ defmodule Set do
 
   def contains(set, element) do
     element in set.elements
+  end
+
+  def remove(set, element) do
+    %Set{
+      size: set.size - 1,
+      elements: List.delete(set.elements, element),
+    }
   end
 end

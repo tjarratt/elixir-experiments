@@ -4,9 +4,9 @@ defmodule SetTest do
 
   setup_all do
     {:ok,
-      empty: Set.new(),
-      one: Set.new([1]),
-      many: Set.new([1,2,3]),
+      empty: Set.new,
+      one: Set.new |> Set.add(1),
+      many: Set.new |> Set.add(1) |> Set.add(2) |> Set.add(3),
     }
   end
 
@@ -29,5 +29,19 @@ defmodule SetTest do
     assert Set.contains(state[:one], 2) === false
     assert Set.contains(state[:many], 1) === true
     assert Set.contains(state[:many], 2) === true
+  end
+
+  test "remove" do
+    set = Set.new
+        |> Set.add(1)
+        |> Set.add(2)
+        |> Set.add(3)
+        |> Set.remove(2)
+
+    assert Set.size(set) == 2
+
+    assert Set.contains(set, 1) == true
+    assert Set.contains(set, 2) == false
+    assert Set.contains(set, 3) == true
   end
 end
