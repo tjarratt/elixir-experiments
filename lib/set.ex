@@ -1,10 +1,10 @@
 defmodule Set do
-  defstruct size: 0
+  defstruct size: 0, elements: []
 
   def new do; %Set{} end
 
   def new(list) do
-    %Set{size: length(list)}
+    %Set{size: length(list), elements: list}
   end
 
   def empty(set) do
@@ -13,5 +13,9 @@ defmodule Set do
 
   def size(set) do
     set.size
+  end
+
+  def contains(set, element) do
+    element in set.elements
   end
 end
