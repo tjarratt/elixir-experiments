@@ -1,14 +1,14 @@
 defmodule Set do
-  defstruct empty: true, size: 0
+  defstruct size: 0
 
   def new do; %Set{} end
 
   def new(list) do
-    %Set{empty: false, size: length(list)}
+    %Set{size: length(list)}
   end
 
   def empty(set) do
-    set.empty
+    set.size === 0
   end
 
   def size(set) do
