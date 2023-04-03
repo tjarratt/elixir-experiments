@@ -1,15 +1,20 @@
 defmodule Set do
   defstruct size: 0, elements: []
 
-  def new do; %Set{} end
+  def new do
+    %Set{}
+  end
 
   def add(set, element) do
     case Enum.member?(set.elements, element) do
-      true -> set
-      false -> %Set{
-                    size: set.size + 1,
-                    elements: [element | set.elements],
-               }
+      true ->
+        set
+
+      false ->
+        %Set{
+          size: set.size + 1,
+          elements: [element | set.elements]
+        }
     end
   end
 
@@ -28,7 +33,7 @@ defmodule Set do
   def remove(set, element) do
     %Set{
       size: set.size - 1,
-      elements: List.delete(set.elements, element),
+      elements: List.delete(set.elements, element)
     }
   end
 end

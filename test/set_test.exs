@@ -4,10 +4,9 @@ defmodule SetTest do
 
   setup_all do
     {:ok,
-      empty: Set.new,
-      one: Set.new |> Set.add(1),
-      many: Set.new |> Set.add(1) |> Set.add(2) |> Set.add(3),
-    }
+     empty: Set.new(),
+     one: Set.new() |> Set.add(1),
+     many: Set.new() |> Set.add(1) |> Set.add(2) |> Set.add(3)}
   end
 
   test "emptiness", state do
@@ -32,11 +31,12 @@ defmodule SetTest do
   end
 
   test "remove" do
-    set = Set.new
-        |> Set.add(1)
-        |> Set.add(2)
-        |> Set.add(3)
-        |> Set.remove(2)
+    set =
+      Set.new()
+      |> Set.add(1)
+      |> Set.add(2)
+      |> Set.add(3)
+      |> Set.remove(2)
 
     assert Set.size(set) == 2
 
@@ -46,7 +46,7 @@ defmodule SetTest do
   end
 
   test "ignores duplicates" do
-    set = Set.new |> Set.add(1) |> Set.add(1)
+    set = Set.new() |> Set.add(1) |> Set.add(1)
 
     assert Set.size(set) === 1
   end
