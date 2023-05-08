@@ -26,3 +26,15 @@ output = File.read!("integers")
         
 IO.puts(List.last(output))
 
+{:ok, file} = File.open("test-file", [:write])
+IO.binwrite(file, "this is the contents of 'test-file'")
+
+File.close(file)
+
+IO.puts(File.read!("test-file"))
+
+case File.read("this/file/does/not/exist") do
+  {:ok, _} -> IO.puts("This should never happen")
+  {:error, reason} -> IO.puts("The expected file did not exist , the error is (#{reason})")
+end
+
