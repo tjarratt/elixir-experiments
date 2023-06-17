@@ -1,0 +1,19 @@
+<.header>
+  Post <%= @post.id %>
+  <:subtitle>This is a post record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/posts/#{@post}/edit"}>
+      <.button>Edit post</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Title"><%= @post.title %></:item>
+  <:item title="Body"><%= @post.body %></:item>
+</.list>
+
+<%= BlogWeb.ItemHTML.new(Map.put(assigns, :action
+<%= render "comments_form.html", post: @post, changeset: @changeset, action: Routes.post_post_path(@conn, :add_comment, @post) %>
+
+<.back navigate={~p"/posts"}>Back to posts</.back>
