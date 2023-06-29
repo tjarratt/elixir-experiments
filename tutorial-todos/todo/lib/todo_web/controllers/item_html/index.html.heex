@@ -1,0 +1,9 @@
+<.header>
+  Listing Items
+
+</.header>
+
+<.table id="item" rows={@item_collection}>
+  <:col :let={item} label="Description"><%= item.description %></:col>
+  <:col :let={item} label="Completed"><%= item.completed %></:col>
+</.table>

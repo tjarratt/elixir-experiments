@@ -1,0 +1,24 @@
+<.header>
+  Listing Release
+  <:actions>
+    <.link href={~p"/release/new"}>
+      <.button>New Release</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="release" rows={@release_collection} row_click={&JS.navigate(~p"/release/#{&1}")}>
+  <:col :let={release} label="Title"><%= release.title %></:col>
+  <:col :let={release} label="Date"><%= release.date %></:col>
+  <:action :let={release}>
+    <div class="sr-only">
+      <.link navigate={~p"/release/#{release}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/release/#{release}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={release}>
+    <.link href={~p"/release/#{release}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

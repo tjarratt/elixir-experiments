@@ -1,0 +1,16 @@
+<.header>
+  Release <%= @release.id %>
+  <:subtitle>This is a release record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/release/#{@release}/edit"}>
+      <.button>Edit release</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Title"><%= @release.title %></:item>
+  <:item title="Date"><%= @release.date %></:item>
+</.list>
+
+<.back navigate={~p"/release"}>Back to release</.back>

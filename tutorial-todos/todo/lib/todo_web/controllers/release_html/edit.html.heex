@@ -1,0 +1,8 @@
+<.header>
+  Edit Release <%= @release.id %>
+  <:subtitle>Use this form to manage release records in your database.</:subtitle>
+</.header>
+
+<.release_form changeset={@changeset} action={~p"/release/#{@release}"} />
+
+<.back navigate={~p"/release"}>Back to release</.back>
