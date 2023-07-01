@@ -1,0 +1,149 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom CSS for LiveView Starter course */
+body {
+  @apply antialiased relative bg-slate-200 font-sans;
+}
+
+nav {
+  @apply py-3 px-6 flex justify-end;
+}
+nav ul {
+  @apply flex items-center justify-between gap-4;
+}
+nav ul li {
+  @apply text-base text-slate-700;
+}
+nav ul li a:hover {
+  @apply underline;
+}
+
+main {
+  @apply max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8;
+}
+
+h1 {
+  @apply text-center text-slate-900 font-extrabold text-3xl;
+}
+
+h2 {
+  @apply text-center text-slate-800 font-extrabold text-2xl;
+}
+
+h3 {
+  @apply text-center text-slate-800 font-bold text-xl;
+}
+
+/* Projects */
+
+#projects {
+  @apply mt-16 flex flex-col min-h-screen items-center;
+}
+#projects h1 {
+  @apply text-5xl text-left font-extrabold leading-10 text-brand;
+}
+#projects ul {
+  @apply mt-8 space-y-5;
+}
+#projects ul li a {
+  @apply inline-flex items-center font-medium text-xl px-2 py-1 rounded-md hover:bg-slate-300 text-slate-700;
+}
+
+/* Light */
+
+#light {
+  @apply mt-8 max-w-xl mx-auto text-center;
+}
+#light button {
+  @apply bg-transparent mx-1 py-2 px-4 border-slate-400 border-2 rounded-lg shadow-sm transition ease-in-out duration-150 outline-none hover:bg-slate-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+#light img,
+#light svg {
+  @apply w-8;
+}
+#light .meter {
+  @apply flex h-12 overflow-hidden text-base bg-slate-300 rounded-lg mb-8;
+}
+#light .meter > span {
+  @apply flex flex-col justify-center text-slate-900 text-center whitespace-nowrap bg-yellow-300 font-bold w-0;
+  transition: width 2s ease;
+}
+#light form {
+  @apply mt-10;
+}
+#light form .temps {
+  @apply flex justify-center items-center space-y-0 space-x-10;
+}
+#light form .temps > div {
+  @apply flex items-center;
+}
+#light form .temps > div input {
+  @apply h-4 w-4 border-slate-300 text-slate-600 focus:ring-slate-500;
+}
+#light form .temps > div label {
+  @apply ml-2 block text-sm font-bold text-slate-700;
+}
+
+/* Animations */
+
+.fade-in-scale {
+  animation: 0.2s ease-in 0s normal forwards 1 fade-in-scale-keys;
+}
+
+.fade-out-scale {
+  animation: 0.2s ease-out 0s normal forwards 1 fade-out-scale-keys;
+}
+
+.fade-in {
+  animation: 0.2s ease-out 0s normal forwards 1 fade-in-keys;
+}
+
+.fade-out {
+  animation: 0.2s ease-out 0s normal forwards 1 fade-out-keys;
+}
+
+@keyframes fade-in-scale-keys {
+  0% {
+    scale: 0.95;
+    opacity: 0;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-scale-keys {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 0.95;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-keys {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-keys {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
