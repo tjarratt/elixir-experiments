@@ -23,6 +23,9 @@ defmodule LiveViewStudioWeb.LightLive do
       <button phx-click="down">
         <img src="/images/down.svg" />
       </button>
+      <button phx-click="random">
+        <img src="/images/fire.svg" />
+      </button>
       <button phx-click="up">
         <img src="/images/up.svg" />
       </button>
@@ -51,6 +54,11 @@ defmodule LiveViewStudioWeb.LightLive do
 
   def handle_event("down", _payload, socket) do
     socket = update(socket, :brightness, &(max(&1 - 10, 0)))
+    {:noreply, socket}
+  end
+
+  def handle_event("random", _payload, socket) do
+    socket = assign(socket, brightness: Enum.random(0..100))
     {:noreply, socket}
   end
 end
