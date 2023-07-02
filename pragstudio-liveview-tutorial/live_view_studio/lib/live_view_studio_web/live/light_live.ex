@@ -8,6 +8,8 @@ defmodule LiveViewStudioWeb.LightLive do
     {:ok, socket}
   end
 
+  # second callback when a request comes in
+  # should return a heex template to return to the client
   def render(assigns) do
     ~H"""
     <h1>Front Porch Light</h1>
@@ -36,6 +38,7 @@ defmodule LiveViewStudioWeb.LightLive do
     """
   end
 
+  # callbacks for phx-click events in the heex template
   def handle_event("on", _payload, socket) do
     socket = assign(socket, brightness: 100)
     {:noreply, socket}
